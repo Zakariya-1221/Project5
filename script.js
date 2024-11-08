@@ -230,4 +230,5 @@ document.addEventListener('DOMContentLoaded', () => {
     window.cubeRoot = cubeRoot;
     window.generateEvenList = generateEvenList;
     window.generate_square_file = generate_square_file;
+    window.exponent = exponent;
 });
