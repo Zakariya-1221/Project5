@@ -40,6 +40,35 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Log calculated');
     }
 
+    function exponent() {
+        let num = parseFloat(prompt('Enter the number'));
+        let power = parseFloat(prompt('Enter the power'));
+
+        if (power === 0){
+            input.value = 1;
+        }
+        if (num === 0 && power < 0){
+            throw new Error("Zero raised to a negative exponent!")
+        }
+    
+        let result = 1
+        if (power < 0){
+            let newNum = 1.0 / num
+            power = -power
+            for (let i = 0; i < power; i++){
+                result = result * newNum
+            }
+        }
+        else {
+            for (let i = 0; i < power; i++){
+                result = result * num
+            }
+        }
+    
+        input.value = result;
+        console.log('Exponent calculated');
+    }
+
     //function for factorial
     function factorial() {
         const n = prompt('Enter the number');
@@ -78,7 +107,27 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Median calculated');
     }
 
+    function absolute() {
+        let num = parseFloat(prompt('Enter the number '));
+        if (num < 0) {
+            num = num * -1;
+        }
 
+        input.value = num;
+    }
+
+
+    function squareRoot() {
+        let a = prompt('Enter the number');
+        input.value = Math.sqrt(a);
+        console.log('Square root calculated');
+    }
+
+    function cubeRoot() {
+        let a = prompt('Enter the number');
+        input.value = Math.cbrt(a);
+        console.log('Cube root calculated');
+    }
 
     //function for list of prime numbers upto a certain number
     function primeList() {
@@ -101,6 +150,35 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Prime numbers calculated');
     }
 
+
+    function generateEvenList() {
+        const start = prompt('Enter the start number');
+        const end = prompt('Enter the end number');
+        const arr = [];
+
+        for (var i = start; i <= end; i++) {
+            if (i % 2 === 0) {
+                arr.push(i);
+            }
+        }
+        input.value = arr;
+        console.log('Even numbers generated');
+    }
+
+    function generate_square_file() {
+        const start = prompt('Enter the start number');
+        const end = prompt('Enter the end number');
+        const arr = [];
+
+        for (var i = start; i <= end; i++) {
+                arr.push(i**2);
+            }
+        input.value = arr;
+        console.log('Even numbers generated');
+    }
+        
+        
+    
     //function to convert infix expression to postfix expression
     function infixPostfix(infix) {
 
@@ -136,6 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         return postfix;
     }
+
     window.appendNumber = appendNumber;
     window.appendOperator = appendOperator;
     window.calculate = calculate;
@@ -146,5 +225,9 @@ document.addEventListener('DOMContentLoaded', () => {
     window.percentage = percentage;
     window.median = median;
     window.primeList = primeList;
-
+    window.absolute = absolute;
+    window.squareRoot = squareRoot;
+    window.cubeRoot = cubeRoot;
+    window.generateEvenList = generateEvenList;
+    window.generate_square_file = generate_square_file;
 });
